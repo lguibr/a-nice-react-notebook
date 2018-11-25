@@ -36,4 +36,12 @@ jobs:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
 
-      - run: yarn test
+      - run: yarn 
+      - run: yarn build
+      - run: git checkout gh-pages
+      - run: git pull
+      - run: cp -R build/* .
+      - run: git add .
+      - run: git commit -a -m "Update GHPage"
+      - run: git push origin gh-pages
+
