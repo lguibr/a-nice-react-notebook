@@ -14,6 +14,10 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
+      
+      - add_ssh_keys:
+          fingerprints:
+            - "04:82:e0:55:70:73:62:e5:d2:37:5b:9c:05:d9:74:a3"
       - run: yarn 
       - run: yarn build
       - run: git checkout gh-pages
