@@ -1,0 +1,12 @@
+body{
+  background-color: rgb(34, 32, 30);
+}
+.App{
+  display: grid;
+  grid-template-rows: 1.2em 1fr;
+  height: 100vh;
+  .Content{
+    display: grid;
+    grid-template-columns:2fr 10fr;
+  }
+}

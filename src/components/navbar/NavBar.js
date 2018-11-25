@@ -1,11 +1,11 @@
 
 import React, { Component } from 'react';
-import './NavBar.css';
+import './NavBar.scss';
 class NavBar extends Component {
     render() {
         return (
             <div className="NavBar">
-                <h1>Eu sou um componente chamado NavBar</h1>
+                <p>Eu sou um componente chamado NavBar</p>
             </div>
         );
     }
