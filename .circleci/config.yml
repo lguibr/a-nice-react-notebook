@@ -14,28 +14,6 @@ jobs:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-  test:
-    docker:
-      - image: circleci/node:8.9.4
-
-    working_directory: ~/cicd-circleci
-
-    steps:
-      - checkout
-
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-
       - run: yarn 
       - run: yarn build
       - run: git checkout gh-pages
@@ -44,4 +22,7 @@ jobs:
       - run: git add .
       - run: git commit -a -m "Update GHPage"
       - run: git push origin gh-pages
-
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
