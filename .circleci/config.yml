@@ -23,9 +23,12 @@ jobs:
       - run: git checkout gh-pages
       - run: git pull
       - run: cp -R build/* .
-      - run: sed -i "s/\/assets/\/a-nice-react-notebook\/assets/g" index.html
+      - run: sed -i -e 's/static/a-nice-react-notebook\/static/g' index.html
+      - run: sed -i -e 's/manifest/a-nice-react-notebook\/manifest/g' index.html
+      - run: sed -i -e 's/favicon/a-nice-react-notebook\/favicon/g' index.html
+      - run: cat index.html
       - run: git add .
-      - run: git commit -a -m "Update GHPage"
+      - run: git commit -m "Update GHPage"
       - run: git push origin gh-pages
       - save_cache:
           paths:
