@@ -23,6 +23,7 @@ jobs:
       - run: git checkout gh-pages
       - run: git pull
       - run: cp -R build/* .
+      - run: sed -i "s/\/assets/\/a-nice-react-notebook\/assets/g" index.html
       - run: git add .
       - run: git commit -a -m "Update GHPage"
       - run: git push origin gh-pages
